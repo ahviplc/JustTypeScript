@@ -1,6 +1,6 @@
-import {add} from "./utils/utils";
+import * as utils from "./utils/utils";
 
-const total = add(1, 2)
+const total = utils.add(1, 2)
 
 // 打印
 console.log('add(1,2)', total)
@@ -9,4 +9,8 @@ console.log('add(1,2)', total)
 // node dist/index-webpack-bundle.js
 // 输出
 // add(1,2) 3
+
+export {
+    utils as tsTools
+}
 

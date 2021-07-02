@@ -16,7 +16,7 @@
   \******************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nvar utils_1 = __webpack_require__(/*! ./utils/utils */ \"./src/utils/utils.ts\");\r\nvar total = utils_1.add(1, 2);\r\n// 打印\r\nconsole.log('add(1,2)', total);\r\n// 使用\r\n// node dist/index-webpack-bundle.js\r\n// 输出\r\n// add(1,2) 3\r\n\n\n//# sourceURL=webpack://JustTypeScript/./src/index-webpack.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.tsTools = void 0;\r\nvar utils = __webpack_require__(/*! ./utils/utils */ \"./src/utils/utils.ts\");\r\nexports.tsTools = utils;\r\nvar total = utils.add(1, 2);\r\n// 打印\r\nconsole.log('add(1,2)', total);\r\n\n\n//# sourceURL=webpack://JustTypeScript/./src/index-webpack.ts?");
 
 /***/ }),
 
