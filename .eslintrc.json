@@ -11,11 +11,15 @@
   ],
   "rules": {
     "no-console": "off", // off | warn
+    "no-undef": "off",
     "@typescript-eslint/array-type": [
       "error",
       {
         "default": "generic"
       }
+    ],
+    "@typescript-eslint/no-var-requires": [
+      "off"
     ]
   }
 }

@@ -16,12 +16,16 @@
     "webpack-build": "npx webpack",
     "webpack-watch": "webpack --watch",
     "webpack-conf": "webpack --config webpack.config.js",
+    "webpack-serve": "webpack serve --open chrome.exe",
     "eslint": "npx eslint . --ext .ts",
     "eslint-fix": "npx eslint . --ext .ts --fix",
-    "dev": "vite tests/www --port 8636"
+    "vite-serve": "vite dist-webpack --port 8636"
   },
   "keywords": [
     "TypeScript",
+    "webpack",
+    "eslint",
+    "babel",
     "demo"
   ],
   "author": "LC ahlc@sina.cn",
@@ -34,12 +38,17 @@
     "@babel/preset-typescript": "^7.14.5",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "core-js": "^3.15.2",
     "eslint": "^7.29.0",
+    "html-webpack-plugin": "^5.3.2",
     "ts-loader": "^9.2.3",
     "typescript": "^4.3.5",
     "vite": "^2.3.8",
     "webpack": "^5.41.1",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   },
   "bin": "",
   "main": "",
@@ -55,6 +64,5 @@
     ".babelrc.json",
     ".eslintrc.json",
     ".eslintignore"
-  ],
-  "dependencies": {}
+  ]
 }

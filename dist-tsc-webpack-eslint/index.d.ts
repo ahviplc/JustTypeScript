@@ -1,6 +1,2 @@
-import { sayHello } from "./utils/utils";
-declare const tsTools: {
-    sayHello: typeof sayHello;
-};
-export { tsTools };
+export {};
 //# sourceMappingURL=index.d.ts.map

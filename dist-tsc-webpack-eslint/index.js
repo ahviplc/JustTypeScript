@@ -9,12 +9,19 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.tsTools = void 0;
     const utils_1 = require("./utils/utils");
     // 先执行一下
     utils_1.sayHello();
-    const tsTools = {
-        sayHello: utils_1.sayHello
-    };
-    exports.tsTools = tsTools;
+    const total = utils_1.add(11, 22);
+    // 打印
+    console.log('...add(11,22)...', total);
 });
+// 好像没用
+// const tsTools = {
+//     sayHello
+// }
+//
+// // 再从总出口导出
+// export {
+//     tsTools
+// }

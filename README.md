@@ -45,10 +45,15 @@ https://www.babeljs.cn/
 GitHub - babel/babel: 🐠 Babel is a compiler for writing next generation JavaScript.
 https://github.com/babel/babel
 
+@babel/preset-env · Babel
+https://babeljs.io/docs/en/babel-preset-env.html
+
 webpack中文文档
 https://v4.webpack.docschina.org/
 
-A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading parts of the application on demand. Through "loaders", modules can be CommonJs, AMD, ES6 modules, CSS, Images, JSON, Coffeescript, LESS, ... and your custom stuff.
+A bundler for javascript and friends. Packs many modules into a few bundled assets. Code Splitting allows for loading
+parts of the application on demand. Through "loaders", modules can be CommonJs, AMD, ES6 modules, CSS, Images, JSON,
+Coffeescript, LESS, ... and your custom stuff.
 https://github.com/webpack/webpack
 
 ESLint - Pluggable JavaScript linter
@@ -93,9 +98,42 @@ https://github.com/SimonZhangITer/vue-typescript-dpapp-demo/blob/master/.eslintr
 TS声明文件 - 苍青浪 - 博客园
 https://www.cnblogs.com/cangqinglang/p/11166445.html
 
-多来查看
-编译选项 · TypeScript中文网 · TypeScript——JavaScript的超集
+多来查看 编译选项 · TypeScript中文网 · TypeScript——JavaScript的超集
 https://www.tslang.cn/docs/handbook/compiler-options.html
+
+尚硅谷2021版TypeScript教程（李立超老师TS新课）_哔哩哔哩_bilibili
+https://www.bilibili.com/video/BV1Xy4y1v7S2?p=11
+
+html-webpack-plugin - npm
+https://www.npmjs.com/package/html-webpack-plugin
+
+GitHub - jantimon/html-webpack-plugin: Simplifies creation of HTML files to serve your webpack bundles
+https://github.com/jantimon/html-webpack-plugin
+
+webpack-dev-server - npm
+https://www.npmjs.com/package/webpack-dev-server
+
+GitHub - webpack/webpack-dev-server: Serves a webpack app. Updates the browser on changes.
+Documentation https://webpack.js.org/configuration/dev-server/.
+https://github.com/webpack/webpack-dev-server
+
+[Preview] \README.md - webpack/webpack-dev-server - GitHub1s
+https://github1s.com/webpack/webpack-dev-server
+
+clean-webpack-plugin - npm
+https://www.npmjs.com/package/clean-webpack-plugin
+
+GitHub - johnagan/clean-webpack-plugin: A webpack plugin to remove your build folder(s) before building
+https://github.com/johnagan/clean-webpack-plugin
+
+fast - GitHub - johnagan/clean-webpack-plugin: A webpack plugin to remove your build folder(s) before building
+https://hub.fastgit.org/johnagan/clean-webpack-plugin
+
+[Preview] \README.md - johnagan/clean-webpack-plugin - GitHub1s
+https://github1s.com/johnagan/clean-webpack-plugin
+
+GitHub - ahviplc/JustTampermonkey: JustTampermonkey,一个TamperMonkey工具集装箱.
+https://hub.fastgit.org/ahviplc/JustTampermonkey
 ```
 
 ## Notes
@@ -126,12 +164,28 @@ npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslin
 yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
+#### 1.4 安装webpack插件和其他以来
+
+```sh
+`自动生成html内置打包生成的js`
+yarn add --dev html-webpack-plugin
+和
+yarn add -D webpack-dev-server
+和
+`自动清空dist再打包`
+yarn add -D clean-webpack-plugin
+和
+`babel和webpack结合使用`
+yarn add -D @babel/core @babel/preset-env babel-loader core-js
+```
+
 ### 2. 注意点
 
 ```markdown
 * “<T>”类型断言语法，但可以使用“x as T”语法来代替。
 * 在编译TypeScript时，可以启用“--isolatedModules”编译选项，它的作用是当编译器发现无法被正确处理的语言结构时给出提示。
-* 启用所有严格类型检查选项。启用 --strict相当于启用 --noImplicitAny, --noImplicitThis, --alwaysStrict， --strictNullChecks和 --strictFunctionTypes和--strictPropertyInitialization
+* 启用所有严格类型检查选项。启用 --strict相当于启用 --noImplicitAny, --noImplicitThis, --alwaysStrict， --strictNullChecks和
+  --strictFunctionTypes和--strictPropertyInitialization
 ```
 
 ### 3. 小知识
@@ -158,8 +212,67 @@ UMD：Universal Module Definition（通用模块规范），是由社区想出�
 
 ### 4. 代码段
 
-```js
+`webpack.config.js之前一个loader写法`
 
+```js
+module: {
+    rules: [
+        {
+            // test 指定的是规则生效的文件
+            test: /\.tsx?$/, // 【test: /\.ts?$/,】 【test: /\.tsx?$/,】
+            // 使用的loader
+            use: 'ts-loader',
+            // 要排除的文件|文件夹
+            exclude: /node_modules/
+        }
+    ]
+}
+```
+
+`两个loader`
+
+```js
+    // loader的配置
+module: {
+    rules: [
+        {
+            // test 指定的是规则生效的文件
+            test: /\.tsx?$/, // 【test: /\.ts?$/,】 【test: /\.tsx?$/,】
+            // 使用的loader
+            use: [
+                // 配置babel 此写法可以进行更多的配置
+                {
+                    loader: "babel-loader",
+                    options: {
+                        // 设置预定义的环境
+                        presets: [
+                            [
+                                // 指定环境的插件
+                                "@babel/preset-env",
+                                // 配置信息
+                                {
+                                    "targets": {
+                                        // 要兼容的目标浏览器
+                                        "chrome": "58",
+                                        "ie": "11"
+                                    },
+                                    // 指定corejs的版本
+                                    "corejs": "3",
+                                    // 使用corejs的方式 "usage" 表示按需加载
+                                    "useBuiltIns": "usage"
+                                }
+                            ]
+                        ]
+                    }
+                },
+                // 这个写法也是对的
+                'ts-loader'
+            ],
+            // 要排除的文件|文件夹
+            exclude: /node_modules/
+        }
+    ]
+}
 ```
 
 ## Author

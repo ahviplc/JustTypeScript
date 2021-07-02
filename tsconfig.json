@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "strict": true,
+    "strict": true, // 开这一个 相当于开了 --noImplicitAny, --noImplicitThis, --alwaysStrict， --strictNullChecks和 --strictFunctionTypes和--strictPropertyInitialization.
     // types option has been previously configured
     // 其“--types”编译选项也能够用来指定使用的声明文件。
     // 其“--typeRoots”编译选项配置的是含有声明文件的目录，
@@ -18,9 +18,10 @@
       "node_modules/@types"
     ],
     // 编译输出目标 ES 版本
-    "target": "ES5",
+    // ES6就是ES2015
+    "target": "ES2015", // ES2015 | ES5
     // 采用的模块系统
-    "module": "CommonJS",
+    "module": "ES2015", // ES2015 | CommonJS
     // UMD | esnext
     // 允许编译javascript文件
     "allowJs": true,
@@ -60,7 +61,18 @@
     // 编译生成ts声明文件
     "declaration": true,
     // 编译生成ts声明文件对应map
-    "declarationMap": true
+    "declarationMap": true,
+    // 移除所有的注释
+    "removeComments": true,
+    // 当有错误时 不生成编译后的文件
+    "noEmitOnError": true,
+    // 用来设置编译后的文件是否使用严格模式,默认false
+    "alwaysStrict": true,
+    // Import non-ES modules as default imports.
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
   // ts要编译的文件
   // "files": [],
