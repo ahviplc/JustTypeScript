@@ -26,7 +26,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\n
   \****************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.add = void 0;\r\n// 加\r\nfunction add(x, y) {\r\n    return x + y;\r\n}\r\nexports.add = add;\r\n\n\n//# sourceURL=webpack://JustTypeScript/./src/utils/utils.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.sayHello = exports.add = void 0;\r\n// 加\r\nfunction add(x, y) {\r\n    return x + y;\r\n}\r\nexports.add = add;\r\n// say Hello\r\nfunction sayHello() {\r\n    console.log('Hello JustTypeScript');\r\n}\r\nexports.sayHello = sayHello;\r\n\n\n//# sourceURL=webpack://JustTypeScript/./src/utils/utils.ts?");
 
 /***/ })
 

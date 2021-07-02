@@ -1,8 +1,31 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "outDir": "dist-tsc-webpack-eslint",
     "strict": true,
-//    "allowJs": true
-  }
+    "target": "ES6", // ES5 | ES6
+    // UMD - 整合了CommonJS和AMD两个模块定义规范
+    "module": "UMD",
+    "outDir": "dist-tsc-webpack-eslint",
+    "allowJs": true,
+    "checkJs": true,
+    "pretty": true,
+    "sourceMap": false,
+    // 编译生成ts声明文件
+    "declaration": true,
+    // 编译生成ts声明文件对应map
+    "declarationMap": true
+  },
+  // ts要编译的文件
+  // "files": [],
+  // ts编译包含的文件
+  // 也就是目前编译 src/index.ts
+  "include": [
+    "src/**/*"
+  ],
+  // ts编译排除的文件
+  // 排除 src/index-babel.ts
+  // 排除 src/index-webpack.ts
+  "exclude": [
+    "src/index-babel.ts",
+    "src/index-webpack.ts"
+  ]
 }

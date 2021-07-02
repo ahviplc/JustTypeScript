@@ -4,20 +4,17 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports"], factory);
+        define(["require", "exports", "./utils/utils"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.sayHello = exports.add = void 0;
-    // 加
-    function add(x, y) {
-        return x + y;
-    }
-    exports.add = add;
-    // say Hello
-    function sayHello() {
-        console.log('Hello JustTypeScript');
-    }
-    exports.sayHello = sayHello;
+    exports.tsTools = void 0;
+    const utils_1 = require("./utils/utils");
+    // 先执行一下
+    utils_1.sayHello();
+    const tsTools = {
+        sayHello: utils_1.sayHello
+    };
+    exports.tsTools = tsTools;
 });

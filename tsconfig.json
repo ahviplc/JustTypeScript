@@ -57,10 +57,10 @@
     ],
     "pretty": true,
     "sourceMap": false,
-    "declaration": true
     // 编译生成ts声明文件
-    "declarationMap": true
+    "declaration": true,
     // 编译生成ts声明文件对应map
+    "declarationMap": true
   },
   // ts要编译的文件
   // "files": [],
