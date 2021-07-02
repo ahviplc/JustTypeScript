@@ -66,8 +66,36 @@ https://www.lodashjs.com/
 GitHub - lodash/lodash: A modern JavaScript utility library delivering modularity, performance, & extras.
 https://github.com/lodash/lodash
 
+JSON
+https://www.json.org/json-en.html
+
 json在线视图
 https://www.bejson.com/jsonviewernew/
+
+TypeScript入门与实战-钟胜平编著-微信读书
+https://weread.qq.com/web/reader/a2c321c0721cac5ea2c585fk94f328c0312c94f6d7e051b
+
+严格模式 - JavaScript | MDN
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode
+
+TypeScript: Documentation - tsc CLI Options
+https://www.typescriptlang.org/docs/handbook/compiler-options.html
+
+assert-type/tsconfig.base.json at main · Mister-Hope/assert-type · GitHub
+https://github.com/Mister-Hope/assert-type/blob/main/tsconfig.base.json
+
+vue-typescript-dpapp-demo/tsconfig.json at master · SimonZhangITer/vue-typescript-dpapp-demo · GitHub
+https://github.com/SimonZhangITer/vue-typescript-dpapp-demo/blob/master/tsconfig.json
+
+vue-typescript-dpapp-demo/.eslintrc.js at master · SimonZhangITer/vue-typescript-dpapp-demo · GitHub
+https://github.com/SimonZhangITer/vue-typescript-dpapp-demo/blob/master/.eslintrc.js
+
+TS声明文件 - 苍青浪 - 博客园
+https://www.cnblogs.com/cangqinglang/p/11166445.html
+
+多来查看
+编译选项 · TypeScript中文网 · TypeScript——JavaScript的超集
+https://www.tslang.cn/docs/handbook/compiler-options.html
 ```
 
 ## Notes
@@ -103,7 +131,7 @@ yarn add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```markdown
 * “<T>”类型断言语法，但可以使用“x as T”语法来代替。
 * 在编译TypeScript时，可以启用“--isolatedModules”编译选项，它的作用是当编译器发现无法被正确处理的语言结构时给出提示。
-* 
+* 启用所有严格类型检查选项。启用 --strict相当于启用 --noImplicitAny, --noImplicitThis, --alwaysStrict， --strictNullChecks和 --strictFunctionTypes和--strictPropertyInitialization
 ```
 
 ### 3. 小知识
@@ -116,6 +144,16 @@ CJS: CommonJS模块可以说是当前最流行的模块定义规范。相比于A
 AMD：Asynchronous Module Definition（异步模块规范），为浏览器设计的模块定义规范，最老的方式之一，专为浏览器而设计。
 
 UMD：Universal Module Definition（通用模块规范），是由社区想出来的一种整合了CommonJS和AMD两个模块定义规范的方法。让你的模块能在javascript所有运行环境中发挥作用。
+```
+
+`匹配规则`
+
+```
+** 表示任意层级的子目录。
+
+/* 表示第一层级下的任意子目录或文件。
+
+/**/* 就是任意层级下的文件。
 ```
 
 ### 4. 代码段

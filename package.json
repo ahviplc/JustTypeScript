@@ -5,9 +5,11 @@
   "type": "commonjs",
   "scripts": {
     "tsc": "tsc",
+    "tsc-show": "tsc --showConfig",
     "tsc-wp": "tsc -p tsconfig-webpack-eslint.json",
-    "tsc-v": "npx tsc -v",
+    "tsc-watch": "npx tsc --watch",
     "tsc-type-check": "npx tsc --noEmit",
+    "tsc-v": "npx tsc -v",
     "babel-build": "npx babel src --out-dir lib-babel --extensions \".ts,.tsx\" --source-maps inline",
     "babel-v": "npx babel --version",
     "webpack-build": "npx webpack",
