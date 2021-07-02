@@ -1,0 +1,57 @@
+{
+  "name": "JustTypeScript",
+  "version": "1.0.0",
+  "description": "JustTypeScript,一个js超集语言TypeScript的小demo.",
+  "type": "commonjs",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc-wp": "tsc -p tsconfig-webpack-eslint.json",
+    "tsc-v": "npx tsc -v",
+    "tsc-type-check": "npx tsc --noEmit",
+    "babel-build": "npx babel src --out-dir lib-babel --extensions \".ts,.tsx\" --source-maps inline",
+    "babel-v": "npx babel --version",
+    "webpack-build": "npx webpack",
+    "webpack-watch": "webpack --watch",
+    "webpack-conf": "webpack --config webpack.config.js",
+    "eslint": "npx eslint . --ext .ts",
+    "eslint-fix": "npx eslint . --ext .ts --fix",
+    "dev": "vite tests/www --port 8636"
+  },
+  "keywords": [
+    "TypeScript",
+    "demo"
+  ],
+  "author": "LC ahlc@sina.cn",
+  "homepage": "https://gitee.com/ahviplc/JustTypeScript",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.14.5",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "eslint": "^7.29.0",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.5",
+    "vite": "^2.3.8",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "bin": "",
+  "main": "",
+  "module": "",
+  "files": [
+    "src",
+    "tests",
+    "README.md",
+    "webpack.config.js",
+    "package.json",
+    "tsconfig.json",
+    "tsconfig-webpack-eslint.json",
+    ".babelrc.json",
+    ".eslintrc.json",
+    ".eslintignore"
+  ],
+  "dependencies": {}
+}

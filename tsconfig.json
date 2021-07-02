@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "outDir": "lib-tsc",
+    "strict": true,
+    "isolatedModules": true,
+//    "allowJs": true
+  }
+}
