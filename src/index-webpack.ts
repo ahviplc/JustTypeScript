@@ -31,7 +31,7 @@ console.log(fn(333, 666));
 // 输出
 // add(1,2) 3
 
-// 好像没啥效果
+// 有用 具体生效可用webpack配置 去看 webpack.config.umd.js
 // export {
 //     utils as tsTools
 // }

@@ -36,6 +36,24 @@ npm run dev
 yarn dev
 ```
 
+`打包JustTypeScriptToolc库 umd规范` `node环境和浏览器环境均可使用`
+
+`生产模式 production`
+
+```sh
+npm run webpack-build-umd
+或
+yarn webpack-build-umd
+```
+
+`开发模式 development`
+
+```sh
+npm run webpack-build-umd-development
+或
+yarn webpack-build-umd-development
+```
+
 ## Links
 
 ```markdown
@@ -110,6 +128,9 @@ https://www.npmjs.com/package/html-webpack-plugin
 GitHub - jantimon/html-webpack-plugin: Simplifies creation of HTML files to serve your webpack bundles
 https://github.com/jantimon/html-webpack-plugin
 
+html-webpack-plugin详解 - wonyun - 博客园
+https://www.cnblogs.com/wonyun/p/6030090.html
+
 webpack-dev-server - npm
 https://www.npmjs.com/package/webpack-dev-server
 
@@ -134,6 +155,24 @@ https://github1s.com/johnagan/clean-webpack-plugin
 
 GitHub - ahviplc/JustTampermonkey: JustTampermonkey,一个TamperMonkey工具集装箱.
 https://hub.fastgit.org/ahviplc/JustTampermonkey
+
+webpack打包,生成js，提供给node和浏览器使用_weixin_33775582的博客-CSDN博客
+https://blog.csdn.net/weixin_33775582/article/details/91438601
+
+Output | webpack
+https://webpack.js.org/configuration/output/
+
+Output | globalobject | webpack
+https://webpack.js.org/configuration/output/#output
+
+这个写的非常好 非常详细 值得一看 windows10 下使用webpack创建library - SegmentFault 思否
+https://segmentfault.com/a/1190000019152451
+
+HTML <script> 标签的 defer 属性
+https://www.w3school.com.cn/tags/att_script_defer.asp
+
+package.json 中 你还不清楚的 browser，module，main 字段优先级_weixin_34396902的博客-CSDN博客
+https://blog.csdn.net/weixin_34396902/article/details/93170277
 ```
 
 ## Notes
@@ -202,12 +241,22 @@ UMD：Universal Module Definition（通用模块规范），是由社区想出�
 
 `匹配规则`
 
-```
+```markdown
 ** 表示任意层级的子目录。
 
 /* 表示第一层级下的任意子目录或文件。
 
 /**/* 就是任意层级下的文件。
+```
+
+`package.json中的 browser，module 和 main 字段`
+
+```markdown
+字段定义 main : 定义了 npm 包的入口文件，browser 环境和 node 环境均可使用
+
+module : 定义 npm 包的 ESM 规范的入口文件，browser 环境和 node 环境均可使用
+
+browser : 定义 npm 包在 browser 环境下的入口文件
 ```
 
 ### 4. 代码段
@@ -273,6 +322,49 @@ module: {
         }
     ]
 }
+```
+
+`测试 JustTypeScriptToolc | tsToolc 库` `node环境`
+
+```js
+// 导出方式一 对象接收
+const JustTypeScriptToolc = require('./tsToolc-umd-bundle.js');
+JustTypeScriptToolc.tsToolc.sayHello()
+console.log(JustTypeScriptToolc.mathPow(2, 4));
+
+// 导出方式二 解构版本
+const {mathPow, tsToolc} = require('./tsToolc-umd-bundle.js');
+console.log(mathPow(5, 3));
+tsToolc.sayHello()
+console.log(tsToolc.add(111, 222));
+
+// 输出样例==========================
+// Hello JustTypeScript | tsTools
+// 16
+// 125
+// Hello JustTypeScript | tsTools
+// 333
+```
+
+`测试 JustTypeScriptToolc | tsToolc 库` `浏览器环境`
+
+```html
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>JustTypeScript Test Index WebPack打包模板html | 测试 umd 规范js库 tsToolc 库</title></head>
+<body>
+<div>好好学习TS,使用webpack打包ts代码吧.</div>
+<script src="tsToolc-umd-bundle.js"></script>
+</body>
+<script>console.log(window)
+console.log('----------------------------------')
+console.log(window.JustTypeScriptToolc)
+JustTypeScriptToolc.mathPow(5, 2)
+JustTypeScriptToolc.tsToolc.sayHello()
+console.log('----------------------------------')</script>
+</html>
 ```
 
 ## Author

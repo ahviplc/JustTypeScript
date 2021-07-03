@@ -14,6 +14,8 @@
     "babel-build": "npx babel src --out-dir lib-babel --extensions \".ts,.tsx\" --source-maps inline",
     "babel-v": "npx babel --version",
     "webpack-build": "npx webpack",
+    "webpack-build-umd": "npx webpack --config webpack.config.umd.js",
+    "webpack-build-umd-development": "npx webpack --config webpack.config.umd.js --mode development",
     "webpack-watch": "webpack --watch",
     "webpack-conf": "webpack --config webpack.config.js",
     "webpack-serve": "webpack serve --open chrome.exe",
@@ -51,8 +53,9 @@
     "webpack-dev-server": "^3.11.2"
   },
   "bin": "",
-  "main": "",
-  "module": "",
+  "main": "./dist-umd/tsToolc-umd-bundle.js",
+  "module": "./dist-umd/tsToolc-umd-bundle.js",
+  "browser": "./dist-umd/tsToolc-umd-bundle.js",
   "files": [
     "src",
     "tests",

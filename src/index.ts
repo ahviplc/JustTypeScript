@@ -1,5 +1,5 @@
 import {sayHello, add} from "./utils/utils";
-import * as utils from "./utils/utils";
+// import * as utils from "./utils/utils";
 
 // 先执行一下
 sayHello()
@@ -9,7 +9,7 @@ const total = add(11, 22)
 // 打印
 console.log('...add(11,22)...', total)
 
-// 好像没用
+// 有用 具体生效可用webpack配置 去看 webpack.config.umd.js
 // const tsTools = {
 //     sayHello
 // }

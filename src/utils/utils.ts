@@ -5,5 +5,5 @@ export function add(x: number, y: number): number {
 
 // say Hello
 export function sayHello(): void {
-    console.log('Hello JustTypeScript')
+    console.log('Hello JustTypeScript | tsTools')
 }
