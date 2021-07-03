@@ -173,6 +173,18 @@ https://www.w3school.com.cn/tags/att_script_defer.asp
 
 package.json 中 你还不清楚的 browser，module，main 字段优先级_weixin_34396902的博客-CSDN博客
 https://blog.csdn.net/weixin_34396902/article/details/93170277
+
+Webpack打包UMD的export问题_daihaoxin的专栏-CSDN博客
+https://blog.csdn.net/daihaoxin/article/details/106205639
+
+配置webpack,让输出的JS支持ES6-Module的export和import - 宅小歪的BLOG
+https://www.zhaixiaowai.com/Article/article-24.shtml
+
+@purtuga/esm-webpack-plugin - npm
+https://www.npmjs.com/package/@purtuga/esm-webpack-plugin
+
+GitHub - purtuga/esm-webpack-plugin: A webpack plugin to help build/output ESM libraries
+https://github.com/purtuga/esm-webpack-plugin
 ```
 
 ## Notes
@@ -216,6 +228,9 @@ yarn add -D clean-webpack-plugin
 和
 `babel和webpack结合使用`
 yarn add -D @babel/core @babel/preset-env babel-loader core-js
+和
+`帮助构建/输出 ESM 库的 webpack 插件`
+yarn add -D @purtuga/esm-webpack-plugin
 ```
 
 ### 2. 注意点
@@ -365,6 +380,13 @@ JustTypeScriptToolc.mathPow(5, 2)
 JustTypeScriptToolc.tsToolc.sayHello()
 console.log('----------------------------------')</script>
 </html>
+```
+
+TODO `esm`
+
+```js
+import * as tsToolc from './tsToolc-umd-bundle.js'
+console.log(tsToolc)
 ```
 
 ## Author
