@@ -23,7 +23,8 @@ const extensions = [
 const getPath = _path => path.resolve(__dirname, _path)
 
 const tsPlugin = ts({
-    tsconfig: getPath('./tsconfig.json'), // 导入本地ts配置文件
+    // tsconfig: getPath('./tsconfig.json'), // 导入本地ts配置文件
+    tsconfig: getPath('./tsconfig-rollup.json'), // 导入本地ts配置文件 专属rollup打包ts的配置文件 去除一些rollup打包中无需ts编译(tsc)的文件
     extensions
 })
 

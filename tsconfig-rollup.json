@@ -1,0 +1,118 @@
+{
+  "compilerOptions": {
+    // 开这一个 相当于开了 --noImplicitAny, --noImplicitThis, --alwaysStrict， --strictNullChecks和 --strictFunctionTypes和--strictPropertyInitialization.
+    "strict": true,
+    // 设置ts代码编译的目标版本
+    // 编译输出目标 ES 版本
+    // ES6 就是 ES2015
+    // ES2015 | ES5
+    // 此时下面的设置 我们编写的ts代码会被编译为 ES2015(ES6) 版本的js代码
+    "target": "ES2015",
+    // 设置编译后代码使用的模块化系统
+    // 采用的模块系统
+    // UMD | esnext
+    // ES2015 | CommonJS
+    "module": "ES2015",
+    // 指定代码运行时所包含的库(宿主环境)
+    "lib": [
+      "dom",
+      "es5",
+      "ScriptHost",
+      "es6",
+      "DOM.Iterable",
+      "es7",
+      "es2015.promise"
+    ],
+    // 允许编译javascript文件
+    "allowJs": true,
+    // 在 .js文件中报告错误。与 --allowJs配合使用
+    "checkJs": true,
+    // 用来指定编译后文件所在的目录
+    "outDir": "lib-rollup",
+    // ----------------------------------------------------------
+    // 设置 outFile 后,所有的全局作用于中的代码会合并到同一个文件中
+    // "outFile": "",
+    // ----------------------------------------------------------
+    // 将每个文件作为单独的模块（与“ts.transpileModule”类似）。
+    "isolatedModules": true,
+    // 编译器是否输出编译文件列表
+    "listFiles": false,
+    // 设置要包含的类型声明文件名列表
+    // types option has been previously configured
+    // 其“--types”编译选项也能够用来指定使用的声明文件
+    // 其“--typeRoots”编译选项配置的是含有声明文件的目录
+    // 而“--types”编译选项则配置的是具体的声明文件
+    "types": [
+      // add node as an option
+      "node"
+    ],
+    // typeRoots option has been previously configured
+    // 其“--typeRoots”编译选项用来设置声明文件的根目录。当配置了“--typeRoots”编译选项时，只有该选项指定的目录下的声明文件会被添加到编译文件列表，
+    // 而“node_modules/@types”目录下的声明文件将不再被默认添加到编译文件列表.
+    // “typeRoots”属性中的路径是相对于当前“tsconfig.json”配置文件的路径来进行解析的
+    "typeRoots": [
+      // add path to @types
+      "node_modules/@types"
+    ],
+    // 在.tsx文件里支持JSX
+    "jsx": "preserve",
+    // 使用的JSX工厂函数
+    "jsxFactory": "h",
+    // 允许从没有设置默认导出的模块中默认导入
+    "allowSyntheticDefaultImports": true,
+    // 启用装饰器
+    "experimentalDecorators": true,
+    // 启用函数参数双向协变检查
+    // "strict": true,开启之后,就默认开启此项配置了
+    "strictFunctionTypes": true,
+    // 如何处理模块
+    // Specify how TypeScript looks up a file from a given module specifier
+    "moduleResolution": "node",
+    // 在表达式和声明上有隐含的any类型时报错
+    "noImplicitAny": true,
+    // 给错误和消息设置样式，使用颜色和上下文
+    // Enable color and formatting in output to make compiler errors easier to read
+    "pretty": true,
+    // 源代码map
+    "sourceMap": false,
+    // 编译生成ts声明文件
+    "declaration": true,
+    // 编译生成ts声明文件对应map
+    "declarationMap": true,
+    // 移除所有的注释
+    "removeComments": true,
+    // 不生成输出文件
+    "noEmit": false,
+    // 不在输出文件中生成用户自定义的帮助函数代码，如 __extends
+    "noEmitHelpers": false,
+    // 当有错误时 不生成编译后的文件
+    "noEmitOnError": true,
+    // 用来设置编译后的文件是否使用严格模式,默认false
+    "alwaysStrict": true,
+    // Import non-ES modules as default imports
+    // Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility
+    "esModuleInterop": true,
+    // 允许从没有设置默认导出的模块中默认导入。这并不影响代码的输出，仅为了类型检查
+    // Allow 'import x from y' when a module doesn't have a default export
+    "allowSyntheticDefaultImports": true,
+    // 忽略所有的声明文件（ *.d.ts）的类型检查
+    "skipLibCheck": true,
+    // Enable importing .json files
+    "resolveJsonModule": true
+  },
+  // ts要编译的文件
+  // "files": [],
+  // ts编译包含的文件
+  "include": [
+    "src/**/*"
+  ],
+  // ts编译排除的文件
+  // 排除 src/index.ts
+  // 排除 src/index-babel.ts
+  // 排除 src/index-webpack.ts
+  "exclude": [
+    "src/index.ts",
+    "src/index-babel.ts",
+    "src/index-webpack.ts"
+  ]
+}

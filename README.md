@@ -348,7 +348,7 @@ yarn add -D @rollup/plugin-babel rollup-plugin-terser @rollup/plugin-node-resolv
 
 * `使用webpack打包ts`  打出esm模块js库文件(浏览器<script type="module" ... ></script>引入使用的那种) 待完善.其他可以的。
 
-* `使用rollup打包ts` 全端库文件均可成功打包和使用.已测试.具体文件夹在 tests。
+* `使用rollup打包ts` 全端库文件均可成功打包和使用.已测试.具体测试文件在 tests 文件夹中。
 ```
 
 ### 3. 小知识
