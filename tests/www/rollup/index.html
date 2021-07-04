@@ -1,0 +1,64 @@
+<html lang="zh">
+<meta charset="UTF-8">
+<title>JustTypeScript 浏览器测试页面 for rollup</title>
+<head>
+  <script src="../../../dist-rollup/JustTypeScriptToolcRollup.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ramda@0.27.1/dist/ramda.min.js" integrity="sha256-b9w9dH2wg4H3c1vaJkmkV7r8AxhRan6+41iRnFB6jck=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" integrity="sha256-qXBd/EfAdjOA2FGrGAG+b3YBn2tn5A6bhz+LSgYD96k=" crossorigin="anonymous"></script>
+</head>
+<style>
+
+</style>
+<body>
+<label>用rollup打包TypeScript吧.</label>
+
+<!--方法1：引入module.js，然后在script标签里面调用-->
+<!--可用-->
+<script type="module">
+  import {mathPow, tsToolc} from '../../../dist-rollup/esm/index-umd.js'
+  // module in browser
+  console.log('p1-1', mathPow(2, 1));
+  console.log('p1-2', tsToolc.add(111, 111));
+  tsToolc.sayHello()
+</script>
+
+<!--方法2：直接引入index-umd.js，使用src引入-->
+<!--成功使用<script type="module" ... ></script> 使用rollup打包ts出来的esm模块js库-->
+<script type="module" src="../../../dist-rollup/esm/index-umd.js"></script>
+
+<script>
+  // 输出下 window
+  console.log(window);
+
+  // ramdajs R 挂载在 window 上 具体用法看其开发文档
+  console.log('window.R.add(1, 11)', window.R.add(1, 11));
+
+  // R 也可直接使用
+  console.log('R.add(1, 11)', R.add(1, 11));
+  console.log('window.R.equals(1, 1)', window.R.equals(1, 1));
+
+  // lodashjs _ 挂载在 window 上 具体用法看其开发文档
+  // _ 也可直接使用
+  console.log('window._.add(6, 4)', window._.add(6, 4))
+  console.log('_.add(6, 4)', _.add(6, 4))
+  // => 10
+
+  // JustTypeScriptToolcRollup 挂载在 window 上
+  // window.JustTypeScriptToolcRollup // {tsToolc: {…}, mathPow: ƒ}
+  console.log(window.JustTypeScriptToolcRollup); // {tsToolc: {…}, mathPow: ƒ}
+  // 一下均可成功调用
+
+  window.JustTypeScriptToolcRollup.tsToolc.sayHello()
+  console.log('p2-1', window.JustTypeScriptToolcRollup.mathPow(2, 2));
+  console.log('p2-2', JustTypeScriptToolcRollup.mathPow(2, 3));
+  console.log('p2-3', this.JustTypeScriptToolcRollup.mathPow(2, 4));
+  console.log('p2-4', JustTypeScriptToolcRollup.tsToolc.add(222, 222));
+  JustTypeScriptToolcRollup.tsToolc.sayHello()
+
+  // tsToolc 对象
+  console.log('p2-5', JustTypeScriptToolcRollup.tsToolc); // {add: ƒ, sayHello: ƒ}
+  console.log('p2-6', JustTypeScriptToolcRollup.tsToolc.add(333, 333));
+  JustTypeScriptToolcRollup.tsToolc.sayHello()
+</script>
+</body>
+</html>

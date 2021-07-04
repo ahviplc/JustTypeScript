@@ -12,6 +12,10 @@
 
 ### 🏠 [Homepage-github](https://github.com/ahviplc/JustTypeScript)
 
+内含 `babel` `webpack` `rollup` `eslint` `nodejs` `typescript` `js` 等知识点.
+
+`使用webpack打包ts` `使用rollup打包ts` 等.
+
 ## Install
 
 `安装依赖`
@@ -57,6 +61,14 @@ yarn webpack-build-umd-development
 ## Links
 
 ```markdown
+参考了
+JustWebpack: JustWebpack,Webpack打包小demo.
+https://gitee.com/ahviplc/JustWebpack
+
+参考了
+JustRollup: JustRollup,Rollup打包全平台JS库小demo.
+https://gitee.com/ahviplc/JustRollup
+
 Babel 中文网 · Babel - 下一代 JavaScript 语法的编译器
 https://www.babeljs.cn/
 
@@ -185,6 +197,68 @@ https://www.npmjs.com/package/@purtuga/esm-webpack-plugin
 
 GitHub - purtuga/esm-webpack-plugin: A webpack plugin to help build/output ESM libraries
 https://github.com/purtuga/esm-webpack-plugin
+
+===rollup 打包 ts===
+☆主要参考了这个
+rollup + typescript 构建 ts 包 - 简书
+https://www.jianshu.com/p/2b857cbd1d4a/
+
+☆主要参考了这个
+JustRollup: JustRollup,Rollup打包全平台JS库小demo.
+https://gitee.com/ahviplc/JustRollup
+
+参考了这个
+gulp | Rollup 与其他工具集成 | rollup.js 中文文档 | rollup.js 中文网
+https://www.rollupjs.com/guide/tools#gulp
+
+Rollup 与其他工具集成 | rollup.js 中文文档 | rollup.js 中文网
+https://www.rollupjs.com/guide/tools#babel
+
+package.json · ahviplc/JustRollup - 码云 - 开源中国
+https://gitee.com/ahviplc/JustRollup/blob/master/package.json
+
+大选项列表 | rollup.js 中文文档 | rollup.js 中文网
+https://www.rollupjs.com/guide/big-list-of-options
+
+常见问题 | rollup.js 中文文档 | rollup.js 中文网
+https://www.rollupjs.com/guide/faqs
+
+Rollup 与其他工具集成 | rollup.js 中文文档 | rollup.js 中文网
+https://www.rollupjs.com/guide/tools
+
+babel | Rollup 与其他工具集成 | rollup.js 中文文档 | rollup.js 中文网
+https://www.rollupjs.com/guide/tools#babel
+
+rollup-plugin-typescript2 - npm
+https://www.npmjs.com/package/rollup-plugin-typescript2
+
+GitHub - ezolenko/rollup-plugin-typescript2: Rollup plugin for typescript with compiler errors.
+https://github.com/ezolenko/rollup-plugin-typescript2
+
+@rollup/plugin-babel - npm
+https://www.npmjs.com/package/@rollup/plugin-babel
+
+plugins/packages/babel at master · rollup/plugins · GitHub
+https://github.com/rollup/plugins/tree/master/packages/babel#readme
+
+GitHub - rollup/plugins: 🍣 The one-stop shop for official Rollup plugins
+https://github.com/rollup/plugins
+
+下面的 rollup-plugin-commonjs|rollup-plugin-node-resolve 等 很多都移到了这里
+fast - GitHub - rollup/plugins: 🍣 The one-stop shop for official Rollup plugins
+https://hub.fastgit.org/rollup/plugins
+
+rollup-plugin-terser - npm
+https://www.npmjs.com/package/rollup-plugin-terser
+
+GitHub - TrySound/rollup-plugin-terser: Rollup plugin to minify generated bundle
+https://github.com/TrySound/rollup-plugin-terser
+
+GitHub - rollup/rollup-plugin-commonjs: This module has moved and is now available at @rollup/plugin-commonjs / https://github.com/rollup/plugins
+https://hub.fastgit.org/rollup/rollup-plugin-commonjs
+
+GitHub - rollup/rollup-plugin-node-resolve: This module has moved and is now available at @rollup/plugin-node-resolve / https://github.com/rollup/plugins
+https://hub.fastgit.org/rollup/rollup-plugin-node-resolve
 ```
 
 ## Notes
@@ -233,13 +307,38 @@ yarn add -D @babel/core @babel/preset-env babel-loader core-js
 yarn add -D @purtuga/esm-webpack-plugin
 ```
 
+#### 1.5 安装rollup和其相关依赖插件 打包ts
+
+`rollup`
+
+```sh
+yarn add -D rollup
+```
+
+`rollup-plugin-typescript2 插件`
+
+```sh
+yarn add -D rollup-plugin-typescript2 typescript tslib
+```
+
+`@rollup/plugin-babel | rollup-plugin-terser | rollup-plugin-node-resolve | rollup-plugin-commonjs | @rollup/plugin-eslint 等其他插件`
+
+```sh
+yarn add -D @rollup/plugin-babel rollup-plugin-terser @rollup/plugin-node-resolve @rollup/plugin-commonjs @rollup/plugin-eslint
+```
+
 ### 2. 注意点
 
 ```markdown
 * “<T>”类型断言语法，但可以使用“x as T”语法来代替。
+  
 * 在编译TypeScript时，可以启用“--isolatedModules”编译选项，它的作用是当编译器发现无法被正确处理的语言结构时给出提示。
-* 启用所有严格类型检查选项。启用 --strict相当于启用 --noImplicitAny, --noImplicitThis, --alwaysStrict， --strictNullChecks和
-  --strictFunctionTypes和--strictPropertyInitialization
+
+* 启用所有严格类型检查选项。启用 --strict相当于启用 --noImplicitAny, --noImplicitThis, --alwaysStrict， --strictNullChecks和 --strictFunctionTypes和 --strictPropertyInitialization。
+
+* `使用webpack打包ts`  打出esm模块js库文件(浏览器<script type="module" ... ></script>引入使用的那种) 待完善.其他可以的。
+
+* `使用rollup打包ts` 全端库文件均可成功打包和使用.已测试.具体文件夹在 tests。
 ```
 
 ### 3. 小知识
@@ -267,7 +366,8 @@ UMD：Universal Module Definition（通用模块规范），是由社区想出�
 `package.json中的 browser，module 和 main 字段`
 
 ```markdown
-字段定义 main : 定义了 npm 包的入口文件，browser 环境和 node 环境均可使用
+字段定义 
+main : 定义了 npm 包的入口文件，browser 环境和 node 环境均可使用
 
 module : 定义 npm 包的 ESM 规范的入口文件，browser 环境和 node 环境均可使用
 
@@ -382,11 +482,48 @@ console.log('----------------------------------')</script>
 </html>
 ```
 
-TODO `esm`
+`esm` 模块 node环境和浏览器环境均可使用
+
+使用`rollup`打包出来的esm规范js文件才可啊 `webpack`那个待完善
+
+`node环境`
 
 ```js
-import * as tsToolc from './tsToolc-umd-bundle.js'
-console.log(tsToolc)
+// dist-rollup/esm/index-umd.js
+// 所以下面代码为解构代码 把每个方法名拿出 直接调用即可
+import {mathPow, tsToolc} from '../../../dist-rollup/esm/index-umd.js'
+
+console.log(mathPow(6, 2));
+
+console.log(tsToolc.add(222, 222));
+
+tsToolc.sayHello()
+
+// 导出所有
+import * as myLib from '../../../dist-rollup/esm/index-umd.js'
+
+console.log(myLib);
+
+console.log(myLib.mathPow(7, 2));
+
+console.log(myLib.tsToolc.add(333, 333));
+
+myLib.tsToolc.sayHello()
+```
+
+`浏览器环境`
+
+```html
+<!--其他html结构已省略-->
+<!--方法：引入module.js，然后在script标签里面调用-->
+<!--可用-->
+<script type="module">
+    import {mathPow, tsToolc} from '../../../dist-rollup/esm/index-umd.js'
+    // module in browser
+    console.log('p1-1', mathPow(2, 1));
+    console.log('p1-2', tsToolc.add(111, 111));
+    tsToolc.sayHello()
+</script>
 ```
 
 ## Author
