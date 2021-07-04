@@ -58,6 +58,16 @@ npm run webpack-build-umd-development
 yarn webpack-build-umd-development
 ```
 
+**可使用rollup打包命令进行打包**
+
+可打包出 `UMD ESM and CJS` 模块规范 js库文件 并且均可使用 已测试.
+
+```sh
+npm run rollup-build
+或
+yarn rollup-build
+```
+
 ## Links
 
 ```markdown
