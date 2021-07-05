@@ -32,7 +32,7 @@ const tsPlugin = ts({
 const esPlugin = eslint({
     throwOnError: true,
     include: ['src/**/*.ts'],
-    exclude: ['node_modules/**', 'lib/**']
+    exclude: ['node_modules/**', 'dist-rollup/**', 'dist-tsc-webpack-eslint/**', 'dist-umd/**', 'dist-webpack/**', 'dist-rollup/**', 'lib-babel/**', 'lib-tsc/**']
 })
 
 export default [
